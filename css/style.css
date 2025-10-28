@@ -1,93 +1,125 @@
-body{
-    min-height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-body.dragging {
-    user-select: none;
-    cursor: grabbing !important;
-}
-body.dragging *:hover {
-    pointer-events: none;
-}
 @font-face {
-    font-family: "Ruigslay";
-    src: url("/assets/fonts/Ruigslay.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Ruigslay";
+  src: url("/assets/fonts/Ruigslay.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
+
+:root {
+  /* Colors */
+  --bg-body: rgb(29, 26, 37);
+  --bg-card: rgb(19, 16, 16);
+  --bg-lace: black;
+  --border-gold: rgb(219, 196, 120);
+  --accent-gold: rgb(224, 188, 68);
+  --text-color: white;
+  --shadow: rgb(79, 78, 83);
+
+  /* Brand colors */
+  --kofi-bg: white;
+  --kofi-logo: url("/assets/images/kofi.png");
+
+  --github-bg: black;
+  --github-logo: url("/assets/images/github.png");
+
+  --youtube-bg: rgb(221, 71, 71);
+  --youtube-logo: url("/assets/images/youtube.png");
+
+  --fiverr-bg: rgb(112, 207, 93);
+  --fiverr-logo: url("/assets/images/fiverr.png");
+
+  /* Sizes */
+  --link-radius: 0.5rem;
+  --link-height: 50px;
+  --transition-speed: 0.2s;
+  --padding-card: 20px;
+
+  /* Font */
+  --font-display: "Ruigslay", serif;
+  --font-body: sans-serif;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  background: var(--bg-body);
+  user-select: none;
+}
+
+body.dragging {
+  cursor: grabbing !important;
+}
+
+body.dragging *:hover {
+  pointer-events: none;
+}
+
 .card--keychain,
 .card--lace {
-  position: absolute;
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-  background-size: cover;
-  background-position: center;
+    position: absolute;
+    z-index: 2;
+    background-size: cover;
+    background-position: center;
 }
 
 .card--keychain {
-  background-image: url("/assets/images/nene-chibi.png");
-  cursor: grab;
-  width: 60px;
-  height: 60px;
+    background-image: url("/assets/images/nene-chibi.png");
+    width: 60px;
+    height: 60px;
+    cursor: grab;
 }
 
 .card--lace {
-  background-color: black;
-  width: 2px;
-  height: 150px;
-  transform-origin: top;
+    background-color: var(--bg-lace);
+    width: 2px;
+    height: 150px;
+    transform-origin: top;
 }
-.card{
+
+.card {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: var(--padding-card);
     padding-top: 30px;
-    background-color: rgb(29, 26, 37);
-    max-width: 400px;
+    background-color: var(--bg-body);
+    max-width: 370px;
     border-radius: 0.875rem;
-    box-shadow: 0px 0px 0px 2px rgb(79, 78, 83);
+    box-shadow: 0 0 0 2px var(--shadow);
 }
-.card--header{
+
+.card--header {
     position: relative;
     display: flex;
     align-self: flex-start;
-    width:100%;
+    width: 100%;
 }
-.card--hero{
-    border-radius: 10px;
-    inset: 0 0 30% 1.5%;
+
+.card--hero {
     position: absolute;
-    background-image: url(/assets/images/nene-banner.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    inset: 0 0 30% 1.5%;
+    border-radius: 10px;
+    background: url("/assets/images/nene-banner.jpg") center / cover no-repeat;
     opacity: 0.9;
     z-index: 0;
 }
-.card--profile-picture{
+
+.card--profile-picture {
     position: relative;
     min-width: 100px;
     min-height: 100px;
-    background-image: url(/assets/images/Nene.png);
-    background-position: center;
-    background-size: contain;
+    background: url("/assets/images/Nene.png") center / contain no-repeat;
     margin-top: 30px;
     align-self: flex-start;
-    border-radius: 0% 50% 0% 0% ;
-    border: 8px solid rgb(29, 26, 37);
+    border-radius: 0% 50% 0% 0%;
+    border: 8px solid var(--bg-body);
 }
-.card--tagline{
-    position: relative;
-    margin-top: auto;
-}
-.card--name{
+
+.card--name {
     font-family: Ruigslay;
     display: flex;
     position: relative;
@@ -96,31 +128,46 @@ body.dragging *:hover {
     color: rgb(255, 255, 255);
     font-size: xx-large;
 }
-.card--description{
-    font-family: sans-serif;
-    font-weight: 500;
-    font-size: medium;
-    align-self: flex-start;
-    margin: 10px;
-    margin-left: 25px;
-    margin-right: 25px;
-    display: flex;
-    color: rgb(255, 255, 255);
-    flex-wrap: wrap;
+
+.card--description {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: medium;
+  color: var(--text-color);
+  margin: 10px 20px 15px 25px;
+  align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
 }
-.card--link{
-    border: 2px solid rgb(58, 143, 136);
+
+.card--link {
+  min-height: var(--link-height);
+  width: 100%;
+  margin: 5px 15px;
+  border-radius: var(--link-radius);
+  border: 2px solid var(--border-gold);
+  background-color: var(--bg-card);
+  transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
 }
-.card--link{
-    min-height: 75px;
-    min-width: 100%;
-    background-color: rgb(19, 16, 16);
-    margin: 5px 15px;
-    border-radius: 0.500rem;
-    transition: 0.2s  ease-in-out;
+
+.card--link:hover {
+  background-color: var(--accent-gold);
+  transform: translateX(-25px);
+  cursor: pointer;
 }
-.card--link:hover{
-    background-color:rgb(58, 143, 136) ;
-    cursor: pointer;
-    transform: translateX(-25px);
+
+.kofi {
+  background: var(--kofi-bg) center / 100px no-repeat var(--kofi-logo);
+}
+
+.github {
+  background: var(--github-bg) center / 120px no-repeat var(--github-logo);
+}
+
+.youtube {
+  background: var(--youtube-bg) center / 120px no-repeat var(--youtube-logo);
+}
+
+.fiverr {
+  background: var(--fiverr-bg) center / 100px no-repeat var(--fiverr-logo);
 }

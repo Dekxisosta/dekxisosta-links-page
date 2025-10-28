@@ -18,11 +18,14 @@ const length = 150;
 const gravity = 0.9;
 let isDragging = false;
 
-window.addEventListener('resize', ()=>{
-  const cardRect = card.getBoundingClientRect(); // recalc position
+function updateOrigin() {
+  const cardRect = card.getBoundingClientRect();
   origin.x = cardRect.left;
-  origin.y = cardRect.top +20;
-});
+  origin.y = cardRect.top + 20;
+}
+
+window.addEventListener('resize', updateOrigin);
+window.visualViewport.addEventListener('resize', updateOrigin);
 
 function getPointerPosition(e) {
   if (e.touches && e.touches.length > 0) {
@@ -87,7 +90,11 @@ function animate() {
   laceEl.style.top = `${origin.y}px`;
   laceEl.style.transform = `rotate(${deg}deg)`;
 
-  keychainEl.style.left = `${x - 20}px`; // center adjustment
+  keychainEl.style.left = `${x - 30}px`; // center adjustment
   keychainEl.style.top = `${y}px`;
 }
 animate();
+
+window.addEventListener('wheel', (e) => {
+  if (e.ctrlKey) e.preventDefault();
+}, { passive: false });
