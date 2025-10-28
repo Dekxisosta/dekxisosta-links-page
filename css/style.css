@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Ruigslay";
-  src: url("/assets/fonts/Ruigslay.otf") format("opentype");
+  src: url("../assets/fonts/Ruigslay.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -17,16 +17,16 @@
 
   /* Brand colors */
   --kofi-bg: white;
-  --kofi-logo: url("/assets/images/kofi.png");
+  --kofi-logo: url("../assets/images/kofi.png");
 
   --github-bg: black;
-  --github-logo: url("/assets/images/github.png");
+  --github-logo: url("../assets/images/github.png");
 
   --youtube-bg: rgb(221, 71, 71);
-  --youtube-logo: url("/assets/images/youtube.png");
+  --youtube-logo: url("../assets/images/youtube.png");
 
   --fiverr-bg: rgb(112, 207, 93);
-  --fiverr-logo: url("/assets/images/fiverr.png");
+  --fiverr-logo: url("../assets/images/fiverr.png");
 
   /* Sizes */
   --link-radius: 0.5rem;
@@ -66,7 +66,7 @@ body.dragging *:hover {
 }
 
 .card--keychain {
-    background-image: url("/assets/images/nene-chibi.png");
+    background-image: url("../assets/images/nene-chibi.png");
     width: 60px;
     height: 60px;
     cursor: grab;
@@ -103,7 +103,7 @@ body.dragging *:hover {
     position: absolute;
     inset: 0 0 30% 1.5%;
     border-radius: 10px;
-    background: url("/assets/images/nene-banner.jpg") center / cover no-repeat;
+    background: url("../assets/images/nene-banner.jpg") center / cover no-repeat;
     opacity: 0.9;
     z-index: 0;
 }
@@ -112,7 +112,7 @@ body.dragging *:hover {
     position: relative;
     min-width: 100px;
     min-height: 100px;
-    background: url("/assets/images/Nene.png") center / contain no-repeat;
+    background: url("../assets/images/Nene.png") center / contain no-repeat;
     margin-top: 30px;
     align-self: flex-start;
     border-radius: 0% 50% 0% 0%;
