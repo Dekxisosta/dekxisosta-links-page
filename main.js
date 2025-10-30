@@ -1,5 +1,5 @@
-const keychainEl = document.querySelector('.card--keychain');
-const laceEl = document.querySelector('.card--lace');
+const keychainEl = document.querySelector('.card__keychain');
+const laceEl = document.querySelector('.card__lace');
 const body = document.querySelector('body');
 
 const card = document.querySelector('.card');
